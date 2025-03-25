@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/mrwin95/go-ecommerce-backend-api/internal/controllers"
+	c "github.com/mrwin95/go-ecommerce-backend-api/internal/controllers"
 )
 
 func NewRouter() *gin.Engine {
@@ -11,8 +11,8 @@ func NewRouter() *gin.Engine {
 
 	v1 := r.Group("/api/v1")
 	{
-		v1.GET("/ping", controllers.Pong)
-		v1.GET("/user/:id", controllers.GetUserById)
+		v1.GET("/ping", c.NewPongController().Pong)
+		v1.GET("/user/:id", c.NewUserController().GetUserById)
 	}
 
 	// v2 := r.Group("/api/v2")
